@@ -22,6 +22,8 @@ export const useDashboardStore = defineStore({
           }
         );
         const data = await response.json();
+        console.log("Fetched Schools with names:", data); // Log the fetched data
+
         this.setSchoolData(data);
       } catch (error) {
         console.error("Error fetching school data:", error);
