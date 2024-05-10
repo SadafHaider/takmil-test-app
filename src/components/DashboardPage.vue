@@ -1,14 +1,12 @@
 <template>
   <section class="bg-gray-50">
     <div
-      class="px-6 py-8 mx-auto md:px-0 md:py-0 md:h-screen lg:max-w-screen-lg lg:max-h-screen-lg lg:mx-auto xl:max-w-screen-xl"
+      class="px-6 py-8 mx-auto md:px-0 md:py-0 md:h-screen lg:h-screen lg:max-w-screen-lg lg:mx-auto xl:max-w-screen-xl"
     >
       <!-- Calendar widget -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 py-6">
         <div class="bg-white p-4 rounded-md shadow-md pb-40">
-          <label
-            for="date"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          <label for="date" class="block mb-2 text-sm font-medium text-gray-900"
             >Date</label
           >
           <input
@@ -27,21 +25,83 @@
 
       <!-- Display four numbers -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="flex flex-col bg-white px-6 py-10 rounded-md shadow-md">
-          <div class="text-gray-500">Total</div>
-          <div>{{ totalSchools }}</div>
+        <div
+          class="flex flex-row justify-between bg-white px-6 py-10 rounded-md shadow-md"
+        >
+          <div class="flex flex-col">
+            <div class="text-gray-500">Total</div>
+            <div>{{ totalSchools }}</div>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14"
+            width="17.5"
+            viewBox="0 0 640 512"
+          >
+            <path
+              d="M337.8 5.4C327-1.8 313-1.8 302.2 5.4L166.3 96H48C21.5 96 0 117.5 0 144V464c0 26.5 21.5 48 48 48H256V416c0-35.3 28.7-64 64-64s64 28.7 64 64v96H592c26.5 0 48-21.5 48-48V144c0-26.5-21.5-48-48-48H473.7L337.8 5.4zM96 192h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V208c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V208zM96 320h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V336zM232 176a88 88 0 1 1 176 0 88 88 0 1 1 -176 0zm88-48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H336V144c0-8.8-7.2-16-16-16z"
+            />
+          </svg>
         </div>
-        <div class="flex flex-col bg-white px-6 py-10 rounded-md shadow-md">
-          <div class="text-gray-500">Functional</div>
-          <div>{{ FunctionalSchools }}</div>
+
+        <div
+          class="flex flex-row justify-between bg-white px-6 py-10 rounded-md shadow-md"
+        >
+          <div class="flex flex-col">
+            <div class="text-gray-500">Functional</div>
+            <div>{{ FunctionalSchools }}</div>
+          </div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14"
+            width="17.5"
+            viewBox="0 0 640 512"
+          >
+            <path
+              d="M337.8 5.4C327-1.8 313-1.8 302.2 5.4L166.3 96H48C21.5 96 0 117.5 0 144V464c0 26.5 21.5 48 48 48H256V416c0-35.3 28.7-64 64-64s64 28.7 64 64v96H592c26.5 0 48-21.5 48-48V144c0-26.5-21.5-48-48-48H473.7L337.8 5.4zM96 192h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V208c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V208zM96 320h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V336zM232 176a88 88 0 1 1 176 0 88 88 0 1 1 -176 0zm88-48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H336V144c0-8.8-7.2-16-16-16z"
+            />
+          </svg>
         </div>
-        <div class="flex flex-col bg-white px-6 py-10 rounded-md shadow-md">
-          <div class="text-gray-500">Open</div>
-          <div>{{ onSchools }}</div>
+
+        <div
+          class="flex flex-row justify-between bg-white px-6 py-10 rounded-md shadow-md"
+        >
+          <div class="flex flex-col">
+            <div class="text-gray-500">Open</div>
+            <div>{{ onSchools }}</div>
+          </div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14"
+            width="17.5"
+            viewBox="0 0 640 512"
+          >
+            <path
+              d="M337.8 5.4C327-1.8 313-1.8 302.2 5.4L166.3 96H48C21.5 96 0 117.5 0 144V464c0 26.5 21.5 48 48 48H256V416c0-35.3 28.7-64 64-64s64 28.7 64 64v96H592c26.5 0 48-21.5 48-48V144c0-26.5-21.5-48-48-48H473.7L337.8 5.4zM96 192h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V208c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V208zM96 320h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V336zM232 176a88 88 0 1 1 176 0 88 88 0 1 1 -176 0zm88-48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H336V144c0-8.8-7.2-16-16-16z"
+            />
+          </svg>
         </div>
-        <div class="flex flex-col bg-white px-6 py-10 rounded-md shadow-md">
-          <div class="text-gray-500">Closed</div>
-          <div>{{ offSchools }}</div>
+
+        <div
+          class="flex flex-row justify-between bg-white px-6 py-10 rounded-md shadow-md"
+        >
+          <div class="flex flex-col">
+            <div class="text-gray-500">Closed</div>
+            <div>{{ offSchools }}</div>
+          </div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14"
+            width="17.5"
+            viewBox="0 0 640 512"
+          >
+            <path
+              d="M337.8 5.4C327-1.8 313-1.8 302.2 5.4L166.3 96H48C21.5 96 0 117.5 0 144V464c0 26.5 21.5 48 48 48H256V416c0-35.3 28.7-64 64-64s64 28.7 64 64v96H592c26.5 0 48-21.5 48-48V144c0-26.5-21.5-48-48-48H473.7L337.8 5.4zM96 192h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V208c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V208zM96 320h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm400 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v64c0 8.8-7.2 16-16 16H512c-8.8 0-16-7.2-16-16V336zM232 176a88 88 0 1 1 176 0 88 88 0 1 1 -176 0zm88-48c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H336V144c0-8.8-7.2-16-16-16z"
+            />
+          </svg>
         </div>
       </div>
     </div>
