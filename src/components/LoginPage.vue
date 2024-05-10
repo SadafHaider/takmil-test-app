@@ -36,14 +36,40 @@
                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >Password</label
               >
-              <input
-                type="password"
-                v-model="password"
-                id="password"
-                autocomplete="current-password"
-                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                required
-              />
+              <div class="relative">
+                <input
+                  :type="showPassword ? 'text' : 'password'"
+                  v-model="password"
+                  id="password"
+                  autocomplete="current-password"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 pr-10"
+                  required
+                />
+                <button
+                  type="button"
+                  @click="togglePasswordVisibility"
+                  class="absolute inset-y-0 right-0 flex items-center px-3 py-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-gray-400 dark:text-gray-300"
+                    :class="{
+                      'text-primary-600 dark:text-primary-400': showPassword,
+                    }"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M15 12a3 3 0 11-6 0a3 3 0 016 0zM3 12s3-6 9-6s9 6 9 6s-3 6-9 6s-9-6-9-6z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
             </div>
             <div class="flex items-center justify-between">
               <div class="flex items-start">
@@ -86,10 +112,17 @@ import axios from "../axios";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
+  name: "LoginPage",
+
   setup() {
     const router = useRouter();
     const username = ref(""); // Define reactive ref for username
     const password = ref(""); // Define reactive ref for password
+    const showPassword = ref(false);
+
+    const togglePasswordVisibility = () => {
+      showPassword.value = !showPassword.value;
+    };
 
     const login = async () => {
       try {
@@ -121,6 +154,8 @@ export default defineComponent({
       handleLogin,
       username, // Provide access to username in the template
       password, // Provide access to password in the template
+      showPassword,
+      togglePasswordVisibility,
     };
   },
 });
