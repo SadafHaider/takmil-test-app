@@ -112,8 +112,6 @@ import axios from "../axios";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
-  name: "LoginPage",
-
   setup() {
     const router = useRouter();
     const username = ref(""); // Define reactive ref for username
@@ -147,6 +145,7 @@ export default defineComponent({
         router.push("/dashboard");
       } else {
         // Handle login failure
+        
       }
     };
 
